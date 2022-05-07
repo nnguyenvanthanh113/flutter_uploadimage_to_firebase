@@ -492,14 +492,11 @@ class _ListImageState extends State<ListImage> {
                                                                 "Chi tiết: "),
                                                             Text(
                                                               image['description'].length >
-                                                                      MediaQuery.of(context)
-                                                                              .size
-                                                                              .width /
-                                                                          2
+                                                                      20
                                                                   ? image['description']
                                                                           .substring(
                                                                               0,
-                                                                              10) +
+                                                                              20) +
                                                                       '...'
                                                                   : image[
                                                                       'description'],
