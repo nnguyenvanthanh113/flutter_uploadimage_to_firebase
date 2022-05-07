@@ -317,6 +317,9 @@ class _ListImageState extends State<ListImage> {
     return false;
   }
 
+  //download file
+  Future<void> _dowloadFile(String url) async {}
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -518,6 +521,16 @@ class _ListImageState extends State<ListImage> {
                                                 icon: const Icon(Icons.delete),
                                                 onPressed: () {
                                                   _delete(image['path_delete']);
+                                                },
+                                              )),
+                                          Flexible(
+                                              flex: 1,
+                                              child: IconButton(
+                                                color: Colors.red,
+                                                icon:
+                                                    const Icon(Icons.download),
+                                                onPressed: () {
+                                                  _dowloadFile(image['path']);
                                                 },
                                               )),
                                         ],
@@ -737,6 +750,16 @@ class _ListImageState extends State<ListImage> {
                                                   onPressed: () {
                                                     _delete(
                                                         video['path_delete']);
+                                                  },
+                                                )),
+                                            Flexible(
+                                                flex: 1,
+                                                child: IconButton(
+                                                  color: Colors.red,
+                                                  icon: const Icon(
+                                                      Icons.download),
+                                                  onPressed: () {
+                                                    _dowloadFile(video['path']);
                                                   },
                                                 )),
                                           ],
