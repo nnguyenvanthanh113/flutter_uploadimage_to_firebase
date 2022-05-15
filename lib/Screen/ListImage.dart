@@ -1,5 +1,8 @@
 import 'dart:io';
+import 'dart:math';
 
+import 'package:dio/dio.dart';
+// import 'package:file_utils/file_utils.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_uploadimage_to_firebase/Screen/VideoFullScreen.dart';
@@ -9,6 +12,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart' as path;
 import 'package:flutter/foundation.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
+// import 'package:simple_permissions/simple_permissions.dart';
 
 import 'package:video_player/video_player.dart';
 import 'package:video_thumbnail/video_thumbnail.dart';
@@ -29,8 +34,9 @@ class _ListImageState extends State<ListImage> {
   final TextEditingController _authorController = TextEditingController();
   late bool _authorValidation = false;
   late bool _fileNameValidation = false;
-  // late String _tempDir;
   late VideoPlayerController _controller;
+
+  //
 
   // Then upload to Firebase Storage
   Future<void> _upload(String inputSource, String type) async {
@@ -318,7 +324,29 @@ class _ListImageState extends State<ListImage> {
   }
 
   //download file
-  Future<void> _dowloadFile(String url) async {}
+  // Future<String> _downloadFile(String url, String fileName, String dir) async {
+  //   HttpClient httpClient = new HttpClient();
+  //   File file;
+  //   String filePath = '';
+  //   String myUrl = '';
+
+  //   try {
+  //     myUrl = url + '/' + fileName;
+  //     var request = await httpClient.getUrl(Uri.parse(myUrl));
+  //     var response = await request.close();
+  //     if (response.statusCode == 200) {
+  //       var bytes = await consolidateHttpClientResponseBytes(response);
+  //       filePath = '$dir/$fileName';
+  //       file = File(filePath);
+  //       await file.writeAsBytes(bytes);
+  //     } else
+  //       filePath = 'Error code: ' + response.statusCode.toString();
+  //   } catch (ex) {
+  //     filePath = 'Can not fetch url';
+  //   }
+
+  //   return filePath;
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -530,7 +558,10 @@ class _ListImageState extends State<ListImage> {
                                                 icon:
                                                     const Icon(Icons.download),
                                                 onPressed: () {
-                                                  _dowloadFile(image['path']);
+                                                  // _downloadFile(image['url'], image['path'],'');
+
+                                                  //downloadFile();
+                                                  //loadDownloadFile();
                                                 },
                                               )),
                                         ],
@@ -542,8 +573,7 @@ class _ListImageState extends State<ListImage> {
                                           MaterialPageRoute(
                                               builder: (context) =>
                                                   FullScreenImage(
-                                                      child: Image.network(
-                                                          image['url']),
+                                                      child: image['url'],
                                                       dark: true,
                                                       name: image['path'])));
                                     },
@@ -759,7 +789,7 @@ class _ListImageState extends State<ListImage> {
                                                   icon: const Icon(
                                                       Icons.download),
                                                   onPressed: () {
-                                                    _dowloadFile(video['path']);
+                                                    //downloadFile();
                                                   },
                                                 )),
                                           ],
