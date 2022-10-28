@@ -38,13 +38,10 @@ class _SplashState extends State<Splash> with AfterLayoutMixin<Splash> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool _seen = (prefs.getBool('seen') ?? false);
     print('seen:' + _seen.toString());
-    // Navigator.of(context).pushReplacement(
-    //     MaterialPageRoute(builder: (context) => const FirstSeen()));
     if (_seen) {
       Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (context) => const Calculator()));
     } else {
-      //await prefs.setBool('seen', true);
       Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (context) => const FirstSeen()));
     }
