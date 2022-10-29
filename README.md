@@ -28,6 +28,8 @@
 
 •	Hiển thị thông tin video đã lưu(tên, tác giả, chi tiết), cho phép upload video từ camera hoặc thư viện điện thoại.
 
+✔️ Màn hình ứng dụng
+
 ![1](https://user-images.githubusercontent.com/46096171/198628779-f897f4b5-afa7-4663-9166-fe78508bf830.jpg)
 ![2](https://user-images.githubusercontent.com/46096171/198628794-24e32fe5-2f5e-438a-90b3-b0260874bb86.jpg)
 ![3](https://user-images.githubusercontent.com/46096171/198628720-13abd7cc-d910-4955-b0bf-a641a2a8338a.jpg)
